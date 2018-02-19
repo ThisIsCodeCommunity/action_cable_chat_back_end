@@ -1,0 +1,35 @@
+%h1 Chats#index
+%p Find me in app/views/chats/index.html.haml
+- unless @nickname
+  %label{for: 'nickname'} Nickname
+  %input{id: 'nickname'}
+  %input{type: 'submit', id: 'set-nick', value: 'Set Nickname'}
+
+#nick
+
+
+
+
+
+
+
+:javascript
+  document.getElementById('set-nick').addEventListener('click', function () {
+    var headers = new Headers();
+    var nickname = document.getElementById('nickname').value;
+    headers.append('Accept', 'application/json'); // This one is enough for GET requests
+    headers.append('Content-Type', 'application/json'); // This one sends body
+
+    return fetch('/set_nickname', {
+      method: 'POST',
+      headers: headers,
+      mode: 'same-origin',
+      body: JSON.stringify({
+        nickname: nickname
+      })
+    }).then( function(resp) {
+      document.getElementById('nick').innerText('Welcome ' + resp.nickname);
+    }).catch(function(err) {
+      //...
+    })
+  })

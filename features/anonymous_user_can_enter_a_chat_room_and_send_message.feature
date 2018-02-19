@@ -7,6 +7,8 @@ Feature: Anonymous user can enter a chat room and send message
   Scenario: User assigns a nick before entering a room
     Given a user visits the site
     And she fills in "Nickname" with "Nick"
+    And she clicks on "Set Nickname"
+    Then she should see "Welcome Nick"
     Then she should see "Choose a chat room"
     And she selects "General chat" from "Available rooms"
     Then she should see a chat window
