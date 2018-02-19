@@ -12,15 +12,21 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
+gem 'haml-rails'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
   gem 'pry-byebug'
-  gem 'cucumber-rails', require: false
+  gem 'launchy'
+  gem 'cucumber-rails', '~> 1.4', '>= 1.4.5', require: false
   gem 'database_cleaner'
   gem 'coveralls', require: false
+  gem 'chromedriver-helper'
+  gem 'selenium-webdriver'
+
+
 end
 
 group :development do
