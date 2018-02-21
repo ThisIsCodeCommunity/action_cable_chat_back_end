@@ -1,12 +1,13 @@
-%h1 Chats#index
-%p Find me in app/views/chats/index.html.haml
+%h1 Websockets chat
 
 - if @nickname
   #nick
     Welcome
     = @nickname
-  #chat-rooms
-    %h3 Choose a chat room
+  - if @chat_rooms
+    #chat-rooms
+      %h3 Choose a chat room
+      = select_tag 'available_rooms', options_for_select(@chat_rooms.collect{ |room| [room.title, room.title.gsub(' ', '').underscore] })
 - else @nickname
   %label{for: 'nickname'} Nickname
   %input{id: 'nickname'}

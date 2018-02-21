@@ -12,5 +12,5 @@ And(/^she should see a message input field$/) do
 end
 
 And(/^she should see a "([^"]*)" button$/) do |arg|
-  expect(page).to have_selector 'input[type="submit"'
+  expect(page).to have_selector 'input[type="submit"]'
 end
