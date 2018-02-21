@@ -6,7 +6,6 @@
     = @nickname
   - if @chat_rooms
     #chat-rooms
-      - binding.pry
       %h3 Choose a chat room
       = select_tag 'available_rooms', options_for_select(@chat_rooms.collect{ |room| [room.title, room.title.gsub(' ', '').underscore] })
 - else @nickname
