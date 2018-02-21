@@ -13,3 +13,34 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('set-nick').addEventListener('click', function () {
+        var headers = new Headers();
+        var nickname = document.getElementById('nickname');
+        headers.append('Accept', 'application/json'); // This one is enough for GET requests
+        headers.append('Content-Type', 'application/json'); // This one sends body
+        fetch('/set_nickname', {
+            method: 'POST',
+            headers: headers,
+            mode: 'same-origin',
+            credentials: 'same-origin',
+            body: JSON.stringify({
+                nickname: nickname.value
+            })
+        }).then(function (resp) {
+            resp.json().then(function (resp) {
+                redirectWithLocation();
+
+            })
+        })
+    });
+
+    function redirectWithLocation() {
+        var url = new URL(window.location.href);
+        window.location.replace(url);
+
+    }
+
+})
+
