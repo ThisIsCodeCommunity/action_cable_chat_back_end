@@ -11,7 +11,6 @@ Feature: Anonymous user can enter a chat room and send message
     And a user visits the site
     And all session cookies are cleared
 
-
   Scenario: User assigns a nick before entering a room
     Given she fills in "Nickname" with "Nick"
     And she clicks on "Set Nickname"
@@ -25,4 +24,4 @@ Feature: Anonymous user can enter a chat room and send message
     And she should see a "Send" button
 
 
-  Scenario: User fails to assign nick and is prevented from entering a room
+  #Scenario: User fails to assign nick and is prevented from entering a room

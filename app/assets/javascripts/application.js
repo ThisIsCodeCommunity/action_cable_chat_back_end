@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'POST',
             headers: headers,
             mode: 'same-origin',
-            credentials: 'same-origin',
+            credentials: 'include',
             body: JSON.stringify({
                 nickname: nickname.value
             })
