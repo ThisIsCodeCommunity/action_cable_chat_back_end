@@ -36,11 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     });
 
-    function redirectWithLocation() {
-        var url = new URL(window.location.href);
-        window.location.replace(url);
 
-    }
+    document.getElementById('available_rooms').addEventListener('change', function(){
+        console.log(this.value);
+    })
 
-})
+});
+
+function redirectWithLocation() {
+    var url = new URL(window.location.href);
+    window.location.replace(url);
+
+}
+
 

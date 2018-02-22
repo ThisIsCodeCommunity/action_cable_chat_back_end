@@ -7,7 +7,8 @@
   - if @chat_rooms
     #chat-rooms
       %h3 Choose a chat room
-      = select_tag 'available_rooms', options_for_select(@chat_rooms.collect{ |room| [room.title, room.title.gsub(' ', '').underscore] })
+      = select_tag 'available_rooms', options_for_select(@chat_rooms.collect{ |room| [room.title, room.title.gsub(' ', '').underscore] }), prompt: "Select something"
+      %textarea{style: 'display: none;'}
 - else @nickname
   %label{for: 'nickname'} Nickname
   %input{id: 'nickname'}
