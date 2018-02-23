@@ -4,7 +4,7 @@ Feature: Anonymous user can enter a chat room and send message
   I would like to be able to enter a room, set up an nick and chat away...
 
   Background:
-    Given the following ChatRooms has been created
+    Given the following ChatRooms exist
       | title        | host  |
       | General chat | Admin |
 

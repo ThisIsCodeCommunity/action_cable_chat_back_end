@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
     @message = 'Welcome to this Scaffold'
     render html: '', layout: true
   end
+
+  private
+
+  def get_nickname
+    @nickname = cookies.permanent[:nickname]
+  end
 end

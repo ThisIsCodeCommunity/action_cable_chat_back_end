@@ -1,6 +1,5 @@
 Given(/^a user (?:visit|visits) the site$/) do
-  visit root_path
-  binding.pry
+  visit  root_path
 end
 
 And(/^she fills in "([^"]*)" with "([^"]*)"$/) do |field, value|

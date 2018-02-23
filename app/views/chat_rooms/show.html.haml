@@ -1,2 +1,6 @@
-%h1 Chats#show
-%p Find me in app/views/chats/show.html.haml
+%h1= @chat_room.title
+%textarea{id: @chat_room.title.gsub(' ', '-').downcase}}
+= form_with model: [@chat_room, Message.new] do |form|
+  = form.label :body, value: @nickname, for: 'message_body'
+  = form.text_area :body, id: 'message_body'
+  = form.submit value: 'Send'

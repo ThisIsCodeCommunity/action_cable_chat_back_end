@@ -8,7 +8,7 @@ Then(/^she should see a chat window$/) do
 end
 
 And(/^she should see a message input field$/) do
-  expect(page).to have_selector 'input', id: 'message'
+  expect(page).to have_selector 'textarea', id: 'message_body'
 end
 
 And(/^she should see a "([^"]*)" button$/) do |arg|
