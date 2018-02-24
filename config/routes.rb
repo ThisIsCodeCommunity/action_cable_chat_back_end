@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
 
   root controller: :chat_rooms, action: :index
+  mount ActionCable.server, at: '/cable'
 end

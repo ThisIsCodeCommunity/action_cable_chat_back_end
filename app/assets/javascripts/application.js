@@ -14,10 +14,11 @@
 //= require turbolinks
 //= require_tree .
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
     var nickInput = document.getElementById('set-nick');
-    var roomSelector = document.getElementById('available_rooms')
-
+    var roomSelector = document.getElementById('available_rooms');
 
     if (document.body.contains(nickInput)) {
         nickInput.addEventListener('click', function () {
@@ -47,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.body.contains(roomSelector)) {
         roomSelector.addEventListener('change', function () {
             console.log(this.value);
-            debugger;
             var url = new URL('chat_rooms/' + this.value, location);
             window.location.replace(url);
         })
@@ -62,8 +62,6 @@ function redirectWithLocation() {
         window.location.replace(url);
         resolve(true)
     })
-
-
 }
 
 

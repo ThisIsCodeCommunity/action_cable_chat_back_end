@@ -1,6 +1,9 @@
 %h1= @chat_room.title
-%textarea{id: @chat_room.title.gsub(' ', '-').downcase}}
+#messages{data: {room: @chat_room.id}}
+  - @chat_room.messages.each do |message|
+    %p= message.sender + ' says: ' + message.body
 = form_with model: [@chat_room, Message.new] do |form|
-  = form.label :body, value: @nickname, for: 'message_body'
+  = form.hidden_field :sender, value: @nickname
+  = form.label :body, value: "#{@nickname} says:", for: 'message_body'
   = form.text_area :body, id: 'message_body'
   = form.submit value: 'Send'

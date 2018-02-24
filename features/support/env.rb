@@ -27,5 +27,15 @@ Capybara.register_driver :selenium do |app|
   )
 end
 
+Capybara.register_server :puma do |app, port, host|
+  require 'puma'
+  Puma::Server.new(app).tap do |s|
+    s.add_tcp_listener host, port
+  end.run.join
+end
+
+
+Capybara.server = :puma
+
 Capybara.javascript_driver = :selenium
 Capybara.default_driver = :selenium

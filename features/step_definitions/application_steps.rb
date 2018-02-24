@@ -28,3 +28,12 @@ Then(/^there should be a session cookie set to "([^"]*)"$/) do |name|
   expect(cookie_value).to eq name
 end
 
+Then(/^there is nick saved "([^"]*)"$/) do |name|
+  page.driver.browser.manage.add_cookie(name: 'nickname', value: name)
+end
+
+
+And(/^the user is on the "([^"]*)" page$/) do |chat_room_title|
+  chat_room = ChatRoom.find_by(title: chat_room_title)
+  visit chat_room_path(chat_room)
+end

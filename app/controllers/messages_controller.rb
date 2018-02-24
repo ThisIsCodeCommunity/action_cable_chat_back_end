@@ -1,10 +1,13 @@
 class MessagesController < ApplicationController
   def create
     chat_room = ChatRoom.find(params[:chat_room_id])
-    binding.pry
     message = chat_room.messages.create(message_params)
     if message.persisted?
       # Send using AC
+      ActionCable.server.broadcast "chat_room_channel_#{chat_room.id}",
+                                   {room_id: chat_room.id,
+                                   sender: message.sender,
+                                   message: message.body}
       # Send feedback using json?
       render json: {message: 'Your message was sent...'}
     end
