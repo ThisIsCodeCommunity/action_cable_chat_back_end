@@ -8,7 +8,7 @@ class ChatRoomsController < ApplicationController
     respond_to do |format|
       format.html
       format.json  do
-        render json: @chat_rooms.as_json
+        render json: @chat_rooms.as_json(only: [:id, :title, :host])
       end
     end
   end
