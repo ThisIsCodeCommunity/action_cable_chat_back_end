@@ -1,4 +1,4 @@
-Feature: Anonymous user can enter a chat room and send message
+Feature: Anonymous user can enter a chat room
   As an anonymous user
   In order to be able to participate in chats
   I would like to be able to enter a room, set up an nick and chat away...

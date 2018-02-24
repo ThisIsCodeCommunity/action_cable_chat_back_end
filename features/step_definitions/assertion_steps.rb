@@ -4,7 +4,7 @@ end
 
 
 Then(/^she should see a chat window$/) do
-  expect(page).to have_selector 'textarea', id: 'general-chat'
+  expect(page).to have_selector 'div', id: 'messages'
 end
 
 And(/^she should see a message input field$/) do
@@ -13,4 +13,8 @@ end
 
 And(/^she should see a "([^"]*)" button$/) do |arg|
   expect(page).to have_selector 'input[type="submit"]'
+end
+
+But(/^she should not see "([^"]*)"$/) do |text|
+  expect(page).not_to have_content text
 end

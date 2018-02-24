@@ -37,3 +37,8 @@ And(/^the user is on the "([^"]*)" page$/) do |chat_room_title|
   chat_room = ChatRoom.find_by(title: chat_room_title)
   visit chat_room_path(chat_room)
 end
+
+Given(/^(?:she|he) switch to a new window$/) do
+  window = open_new_window
+  switch_to_window(window)
+end
