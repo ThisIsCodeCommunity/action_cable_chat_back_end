@@ -8,6 +8,8 @@ RSpec.describe ChatRoomsController, type: :request do
       it 'should return a chat room' do
         get '/'
 
+        binding.pry
+        response_json = response_json
         expect(response.status).to eq 200
         expected_response = {id: 1, host: 'Oliver', title: 'General Chat'}
         expect(response_json).to eq expected_response.as_json

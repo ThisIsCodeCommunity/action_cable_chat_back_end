@@ -6,7 +6,8 @@ class ChatRoomsController < ApplicationController
     @chat_rooms = ChatRoom.all if @nickname
 
     respond_to do |format|
-      format.json
+      format.html
+      format.json { render json: @chat_rooms }
     end
   end
 
