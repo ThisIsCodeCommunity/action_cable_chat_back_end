@@ -4,6 +4,10 @@ class ChatRoomsController < ApplicationController
 
   def index
     @chat_rooms = ChatRoom.all if @nickname
+
+    respond_to do |format|
+      format.json
+    end
   end
 
   def show
