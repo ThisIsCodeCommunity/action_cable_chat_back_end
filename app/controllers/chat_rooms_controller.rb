@@ -1,5 +1,5 @@
 class ChatRoomsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: :create
+  skip_before_action :verify_authenticity_token, only: [:create, :index]
   before_action :get_nickname, only: [:index, :show]
 
   def index
