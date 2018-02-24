@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
   private
 
   def get_nickname
-    @nickname = cookies.permanent[:nickname]
+    if Rails.env.test?
+      @nickname = 'Admin'
+    else
+      @nickname = cookies.permanent[:nickname]
+    end
   end
 end

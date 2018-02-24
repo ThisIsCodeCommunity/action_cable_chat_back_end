@@ -4,6 +4,13 @@ class ChatRoomsController < ApplicationController
 
   def index
     @chat_rooms = ChatRoom.all if @nickname
+
+    respond_to do |format|
+      format.html
+      format.json  do
+        render json: @chat_rooms.as_json(only: [:id, :title, :host])
+      end
+    end
   end
 
   def show
