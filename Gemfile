@@ -15,6 +15,8 @@ gem 'turbolinks', '~> 5'
 gem 'haml-rails'
 gem 'rack-cors'
 gem 'mui-sass'
+gem 'redis'
+
 
 group :development, :test do
   gem 'rspec-rails'
@@ -38,6 +40,3 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :production do
-  gem 'redis'
-end
