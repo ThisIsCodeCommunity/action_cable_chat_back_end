@@ -7,7 +7,9 @@ class ChatRoomsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @chat_rooms }
+      format.json  do
+        render json: @chat_rooms.as_json
+      end
     end
   end
 
