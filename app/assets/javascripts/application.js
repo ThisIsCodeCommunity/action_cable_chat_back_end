@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require mui
 //= require_tree .
 
 
@@ -21,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var roomSelector = document.getElementById('available_rooms');
 
     if (document.body.contains(nickInput)) {
-        nickInput.addEventListener('click', function () {
+        nickInput.addEventListener('click', function (event) {
+            event.preventDefault();
             var headers = new Headers();
             var nickname = document.getElementById('nickname');
             headers.append('Accept', 'application/json'); // This one is enough for GET requests

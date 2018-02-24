@@ -1,16 +1,24 @@
-%h1 Websockets chat
-
 - if @nickname
   #nick
-    Welcome
-    = @nickname
+    %h1
+      Welcome
+      = @nickname
   - if @chat_rooms
     #chat-rooms
       %h3 Choose a chat room
-      = select_tag 'available_rooms', options_for_select(@chat_rooms.collect{ |room| [room.title, room.id] }), prompt: 'Select room'
+      = label_tag 'Select a room'
+      .mui-select
+        = select_tag 'available_rooms', options_for_select(@chat_rooms.collect{ |room| [room.title, room.id] }), include_blank: true
+    %h3 Or create a new Chat Room
+    = form_with model: ChatRoom.new, local: true do |form|
+      = form.hidden_field :host, value: @nickname
+      .mui-textfield
+        = form.text_field :title,  placeholder: 'Title'
+      = form.submit class: 'mui-btn mui-btn--primary'
 - else @nickname
-  %label{for: 'nickname'} Nickname
-  %input{id: 'nickname'}
-  %input{type: 'submit', id: 'set-nick', value: 'Set Nickname'}
+  %form.mui-form
+    .mui-textfield
+      %input{id: 'nickname', placeholder: 'Nickname'}
+    %input{type: 'submit', id: 'set-nick', value: 'Set Nickname', class: 'mui-btn mui-btn--primary'}
 
 

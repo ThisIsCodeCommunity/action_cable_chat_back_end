@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 var parent = document.getElementById('messages');
                 var newChild = '<p>' + data.sender + ' says: ' + data.message + '</p>';
                 parent.insertAdjacentHTML('beforeend', newChild);
-                this.notifyMe(strip(data.message).split(':')[1].trim());
+                this.notifyMe(data.message);
             },
 
             sendMessage: function (message) {

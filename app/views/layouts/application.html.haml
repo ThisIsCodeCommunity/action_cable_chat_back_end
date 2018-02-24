@@ -7,5 +7,12 @@
     = stylesheet_link_tag    'application', media: 'all', data: {'turbolinks-track' => 'reload'}
     = javascript_include_tag 'application', data: {'turbolinks-track' => 'reload'}
   %body
-    = @message if @message
-    = yield
+    .mui-appbar
+      .mui-row
+        .mui-col-md-10.mui-col-md-offset-2
+          %h3= link_to 'Chat', root_path, style: 'text-decoration: none; color: white;'
+    .mui-container-fluid
+      .mui-row
+        .mui-col-md-8.mui-col-md-offset-2
+          = @message if @message
+          = yield

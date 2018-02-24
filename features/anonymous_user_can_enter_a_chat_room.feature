@@ -24,4 +24,11 @@ Feature: Anonymous user can enter a chat room
     And she should see a "Send" button
 
 
-  #Scenario: User fails to assign nick and is prevented from entering a room
+Scenario: User creates a new chat room
+  Given she fills in "Nickname" with "Nick"
+  And she clicks on "Set Nickname"
+  Then she should see "Welcome Nick"
+  And there should be a session cookie set to "Nick"
+  And she fills in "Title" with "New Chat Room"
+  And she clicks on "Create Chat room"
+  Then she should be on the "New Chat Room" page

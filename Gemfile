@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 gem 'haml-rails'
 gem 'rack-cors'
+gem 'mui-sass'
 
 group :development, :test do
   gem 'rspec-rails'

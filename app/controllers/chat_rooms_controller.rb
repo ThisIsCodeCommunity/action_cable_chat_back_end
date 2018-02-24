@@ -14,13 +14,16 @@ class ChatRoomsController < ApplicationController
     if params[:nickname]
       cookies.permanent[:nickname] = params[:nickname]
       render json: {nickname: session[:nickname]}
-    elsif params[:room]
-      ChatRoom.find_or_create_by(title: params[:room]) do |room|
-        room.host = @nickname
-      end
+    elsif params[:chat_room]
+      chat_room = ChatRoom.find_or_create_by(chat_room_params)
+      redirect_to chat_room_path(chat_room)
     end
+  end
 
+  private
 
+  def chat_room_params
+    params.require(:chat_room).permit(:host, :title)
   end
 
 
